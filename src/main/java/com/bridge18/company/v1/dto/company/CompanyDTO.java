@@ -1,10 +1,10 @@
 package com.bridge18.company.v1.dto.company;
 
-import com.bridge18.company.entities.CompanyRequestStatus;
 import com.bridge18.company.entities.CompanyType;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
-
+@AllArgsConstructor
 public class CompanyDTO {
     public String id;
     public String name;
@@ -14,5 +14,5 @@ public class CompanyDTO {
     public List<ContactDTO> contacts;
     public List<LocationDTO> locations;
 
-    public CompanyRequestStatus requestStatus;
+//    public CompanyRequestStatus requestStatus;
 }
