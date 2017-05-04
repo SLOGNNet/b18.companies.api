@@ -26,13 +26,13 @@ public interface CompanyMemberService extends Service {
     @Override
     default Descriptor descriptor() {
         // @formatter:off
-        return named("/v1/api/company-members").withCalls(
-                restCall(Method.POST, "/", this::inviteMember),
-                restCall(Method.GET, "/", this::getMembers),
-                restCall(Method.GET, "/:id", this::getMember),
-                restCall(Method.DELETE, "/:memberId", this::removeMember),
-                restCall(Method.POST, "/:id/roles", this::addMemberRole),
-                restCall(Method.DELETE, "/:id/roles", this::removeMemberRole)
+        return named("company-members").withCalls(
+                restCall(Method.POST, "/v1/api/company-members", this::inviteMember),
+                restCall(Method.GET, "/v1/api/company-members", this::getMembers),
+                restCall(Method.GET, "/v1/api/company-members/:id", this::getMember),
+                restCall(Method.DELETE, "/v1/api/company-members/:memberId", this::removeMember),
+                restCall(Method.POST, "/v1/api/company-members/:id/roles", this::addMemberRole),
+                restCall(Method.DELETE, "/v1/api/company-members/:id/roles", this::removeMemberRole)
         ).withAutoAcl(true);
         // @formatter:on
     }
