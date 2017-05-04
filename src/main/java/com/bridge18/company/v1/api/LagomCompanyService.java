@@ -28,12 +28,12 @@ public interface LagomCompanyService extends Service {
 
   @Override
   default Descriptor descriptor() {
-    return named("/v1/api/companies").withCalls(
-            restCall(Method.POST, "/", this::createCompany),
-            restCall(Method.GET, "/?pageNumber&pageSize", this::getCompanies),
-            restCall(Method.PUT, "/:id", this::updateCompany),
-            restCall(Method.GET, "/:id", this::getCompany),
-            restCall(Method.DELETE, "/:id", this::deleteCompany)
+    return named("company-ms").withCalls(
+            restCall(Method.POST, "/v1/api/companies", this::createCompany),
+            restCall(Method.GET, "/v1/api/companies/?pageNumber&pageSize", this::getCompanies),
+            restCall(Method.PUT, "/v1/api/companies/:id", this::updateCompany),
+            restCall(Method.GET, "/v1/api/companies/:id", this::getCompany),
+            restCall(Method.DELETE, "/v1/api/companies/:id", this::deleteCompany)
     ).withAutoAcl(true);
   }
 }
